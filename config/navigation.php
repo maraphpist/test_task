@@ -21,26 +21,26 @@ return [
             ]
         ],
 
-        'modules' => [
-            'title' => 'Модули',
+        'contents' => [
+            'title' => 'Контент',
+            'for_super_user' => false,
             'items' => [
-
+                [
+                    'is_tree' => false,
+                    'title' => 'Аудио файлы',
+                    'route_name' => 'admin.audio',
+                    'item_active_on' => 'admin/audio*',
+                    'icon' => 'flaticon flaticon-file',
+                    'roles' => [
+                        'admin',
+                        'manager'
+                    ]
+                ]
             ],
             'roles' => [
                 'admin',
                 'manager'
             ]
-        ],
-
-        'reports' => [
-            'title' => 'Модерация',
-            'items' => [
-
-            ],
-            'roles' => [
-                'admin',
-                'manager'
-            ]
-        ],
-    ],
+        ]
+    ]
 ];
