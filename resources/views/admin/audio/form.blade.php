@@ -21,9 +21,7 @@
     <fieldset>
         <div class="form-group">
             <label for="text">Текст для аудио файла</label>
-            <textarea class="form-control" id="text" name="text" cols="50" rows="5">
-                @if(isset($item->text)) {{$item->text}} @endif
-            </textarea>
+            <textarea class="form-control" id="text" name="text" cols="50" rows="5">@if(isset($item->text)){{$item->text}}@endif</textarea>
             <p class="help-block"></p>
         </div>
     </fieldset>

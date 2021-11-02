@@ -6,9 +6,16 @@
             <p class="help-block"></p>
         </div>
     </fieldset>
+    @if(file_exists(public_path('storage/audios/').$item->audio_file))
     <fieldset>
-{{--        тут типа будет аудио плеер--}}
+        <audio controls  id="player">
+            <source src="{{url('storage/audios/' . $item->audio_file)}}">
+        </audio>
+        <button id="play">Play</button>
+        <button id="pause">Pause</button>
+        <progress id="seekbar" value="0" max="1" style="width:400px; background: {{url('storage/waveforms/' . $item->waveform)}}"></progress>
     </fieldset>
+    @endif
     <fieldset>
         <div class="form-group">
             <label for="text">Текст для аудио файла</label>
@@ -20,3 +27,16 @@
     </fieldset>
     <button class="btn btn-sm btn-info" type="submit">{{$buttonText}}</button>
 </form>
+<script>
+    $('#play').on('click', function() {
+        document.getElementById('player').play();
+    });
+
+    $('#pause').on('click', function() {
+        document.getElementById('player').pause();
+    });
+
+    $('#player').on('timeupdate', function() {
+        $('#seekbar').attr("value", this.currentTime / this.duration);
+    });
+</script>

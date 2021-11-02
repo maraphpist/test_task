@@ -27,3 +27,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'adminMiddleware']], 
         Route::post('{id}/text-audio-sync-update', 'Admin\AudioController@textAudioSyncUpdate')->name('admin.text.audio.sync.update');
     });
 });
+
+Route::group(['prefix' => 'audio'], function () {
+    Route::get('/', 'Front\HomeController@index')->name('home');
+    Route::get('{id}/play', 'Front\HomeController@play')->name('play');
+});

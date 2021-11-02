@@ -282,7 +282,7 @@ class AudioController extends Controller
 
     public function textAudioSyncUpdate(Request $request, $itemId)
     {
-//        тут короч еще не готово ничего
+        $item = $this->audio->find($itemId);
         return response()->json([
             'functions' => [
                 'closeModal' => [
